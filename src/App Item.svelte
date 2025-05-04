@@ -9,7 +9,7 @@
     const rotateName = `rotateX(${flipped ? 90 : 0}deg)`;
     const rotateDesc = `rotateX(${flipped ? 0 : 90}deg)`;
     const delay = flipped ? 0 : 0.3;
-    let gridArea = $state('auto');
+    let gridArea = $state();
     let maxWidth = $state();
 
     $effect(() => {
@@ -22,6 +22,8 @@
             if (wide) {
                 const row = Math.floor(index / 2) + 1;
                 gridArea = `${row}/${col}`;
+            } else {
+                gridArea = `${index + 1}/1`;
             }
         };
 
