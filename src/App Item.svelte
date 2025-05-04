@@ -5,10 +5,10 @@
     const { name, index } = $props();
     const app = APPS[name];
     const { icon, url, desc } = app;
-    const flipped = ss.flip === index + 1;
-    const rotateName = `rotateX(${flipped ? 90 : 0}deg)`;
-    const rotateDesc = `rotateX(${flipped ? 0 : 90}deg)`;
-    const delay = flipped ? 0 : 0.3;
+    const flipped = $derived(ss.flip === index + 1);
+    const rotateName = $derived(`rotateX(${flipped ? 90 : 0}deg)`);
+    const rotateDesc = $derived(`rotateX(${flipped ? 0 : 90}deg)`);
+    const delay = $derived(flipped ? 0 : 0.3);
     let gridArea = $state();
     let maxWidth = $state();
 
@@ -42,7 +42,7 @@
 
 <div class="app-item" style="grid-area: {gridArea};" onpointerdown={onPointerDown}>
     <a href={url} target="_blank" rel="noopener noreferrer" style="display: grid">
-        <img src={icon} alt={name} width={64} style={{ backgroundImage: 'radial-gradient(black, transparent 120%)' }} />
+        <img src={icon} alt={name} width={64} style="background-image: radial-gradient(black, transparent 120%)" />
     </a>
     <div class="app-info" style="max-width: {maxWidth};">
         <div class="app-name" style="grid-area: 1/1; transform: {rotateName}; transition-delay: {delay}s;">
