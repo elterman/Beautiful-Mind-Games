@@ -60,13 +60,11 @@
 
         .root-scroll::-webkit-scrollbar-thumb:hover {
             background: #00000058;
-            /* background: #8a0000d0; */
         }
 
         .root-scroll::-webkit-scrollbar-thumb {
             border-radius: 50vw;
             background: #00000048;
-            /* background: #8a0000b0; */
         }
 
         /* .root-scroll::-webkit-scrollbar-track {

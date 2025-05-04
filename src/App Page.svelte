@@ -3,13 +3,11 @@
     import { APPS } from './const';
     import { scrollClass } from './utils';
 
-    let wx = $state(0);
     let wy = $state(0);
 
     $effect(() => {
         const onResize = () => {
             const r = document.body.getBoundingClientRect();
-            wx = r.width;
             wy = r.height;
         };
 
@@ -38,7 +36,7 @@
         <div class="apps-container">
             <div class="apps {scrollClass()}" style="max-height: {wy - 100}px;">
                 {#each Object.keys(APPS) as key,i (i)}
-                    <AppItem name={key} index={i} wx={wx} />
+                    <AppItem name={key} index={i} />
                 {/each}
             </div>
         </div>

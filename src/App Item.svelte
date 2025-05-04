@@ -2,29 +2,40 @@
     import { APPS } from './const';
     import { ss } from './state.svelte';
 
-    const { name, index, wx } = $props();
+    const { name, index } = $props();
     const app = APPS[name];
     const { icon, url, desc } = app;
     const flipped = ss.flip === index + 1;
     const rotateName = `rotateX(${flipped ? 90 : 0}deg)`;
     const rotateDesc = `rotateX(${flipped ? 0 : 90}deg)`;
     const delay = flipped ? 0 : 0.3;
-    const wide = wx > 600;
-    const col = wide ? (index % 2) + 1 : 1;
-    const maxWidth = ss.flip && (!wide || ((ss.flip - 1) % 2) + 1 === col) ? '200px' : '155px';
+    let gridArea = $state('auto');
+    let maxWidth = $state();
+
+    $effect(() => {
+        const onResize = () => {
+            const r = document.body.getBoundingClientRect();
+            const wide = r.width > 600;
+            const col = wide ? (index % 2) + 1 : 1;
+            maxWidth = ss.flip && (!wide || ((ss.flip - 1) % 2) + 1 === col) ? '200px' : '155px';
+
+            if (wide) {
+                const row = Math.floor(index / 2) + 1;
+                gridArea = `${row}/${col}`;
+            }
+        };
+
+        onResize();
+
+        window.addEventListener('resize', onResize);
+        return () => window.removeEventListener('resize', onResize);
+    });
 
     const onPointerDown = (e) => {
         if (e.target.tagName !== 'IMG') {
             ss.flip = flipped ? null : index + 1;
         }
     };
-
-    let gridArea = $state('auto');
-
-    if (wide) {
-        const row = Math.floor(index / 2) + 1;
-        gridArea = `${row}/${col}`;
-    }
 </script>
 
 <div class="app-item" style="grid-area: {gridArea};" onpointerdown={onPointerDown}>
