@@ -1,6 +1,8 @@
 <script>
+    import { Motion } from 'svelte-motion';
     import AppItem from './App Item.svelte';
     import { APPS } from './const';
+    import { ss } from './state.svelte';
     import { scrollClass } from './utils';
 
     let wy = $state(0);
@@ -35,11 +37,17 @@
     <div class="content" style="height: {wy}">
         <div class="apps-container">
             <div class="apps {scrollClass()}" style="max-height: {wy - 100}px;">
-                {#each Object.keys(APPS) as key,i (i)}
+                {#each Object.keys(APPS) as key, i (i)}
                     <AppItem name={key} index={i} />
                 {/each}
             </div>
         </div>
+        <Motion
+            animate={{ opacity: ss.flip ? 1 : 0, transform: `scale(${ss.flip ? 1 : 0})` }}
+            transition={{ type: 'spring', damping: 10, delay: ss.flip ? 0.75 : 0 }}
+            let:motion>
+            <div class="hint" use:motion>Click on the app icon to play.</div>
+        </Motion>
     </div>
 </div>
 
