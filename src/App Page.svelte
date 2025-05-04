@@ -20,15 +20,13 @@
         return () => window.removeEventListener('resize', onResize);
     });
 
-    const onFeedback = (e) => {
-
-    };
+    const onFeedback = () => {};
 </script>
 
 <div class="app-page">
     <div class="content" style="height: {wy}">
         <div class="apps-container">
-            <div class="apps {scrollClass()}" style="max-height: {wy - 120}px;">
+            <div class="apps {scrollClass()}" style="max-height: {wy - 125}px;">
                 {#each Object.keys(APPS) as key, i (i)}
                     <AppItem name={key} index={i} />
                 {/each}
@@ -40,8 +38,8 @@
             let:motion>
             <div class="hint" use:motion>{`${tapOrClick()} the app icon to play.`}</div>
         </Motion>
-        <div class="feedback" onpointerdown="onFeedback">
-            <img src={Feedback} alt="" width={25}/>
+        <div class="feedback" onpointerdown={onFeedback}>
+            <img src={Feedback} alt="" width={30} />
         </div>
     </div>
 </div>
