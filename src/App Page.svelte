@@ -1,10 +1,22 @@
 <script>
+    let wx = $state(0);
+
+    $effect(() => {
+        const onResize = () => {
+            wx = document.body.getBoundingClientRect();
+        };
+
+        onResize();
+
+        window.addEventListener('resize', onResize);
+        return () => window.removeEventListener('resize', onResize);
+    });
 </script>
 
-<div class="app-apge"></div>
+<div class="app-page"></div>
 
 <style>
-    .app-apge {
+    .app-page {
         display: grid;
         height: 100dvh;
         width: 100dvw;
