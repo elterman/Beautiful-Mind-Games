@@ -59,14 +59,14 @@
         }
 
         .root-scroll::-webkit-scrollbar-thumb:hover {
-            /* background: #fff5; */
-            background: #ffe4add0;
+            background: #00000058;
+            /* background: #8a0000d0; */
         }
 
         .root-scroll::-webkit-scrollbar-thumb {
             border-radius: 50vw;
-            /* background: #fff4; */
-            background: #ffe4adb0;
+            background: #00000048;
+            /* background: #8a0000b0; */
         }
 
         /* .root-scroll::-webkit-scrollbar-track {

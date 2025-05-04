@@ -1,9 +1,16 @@
 <script>
+    import AppItem from './App Item.svelte';
+    import { APPS } from './const';
+    import { scrollClass } from './utils';
+
     let wx = $state(0);
+    let wy = $state(0);
 
     $effect(() => {
         const onResize = () => {
-            wx = document.body.getBoundingClientRect();
+            const r = document.body.getBoundingClientRect();
+            wx = r.width;
+            wy = r.height;
         };
 
         onResize();
@@ -13,7 +20,30 @@
     });
 </script>
 
-<div class="app-page"></div>
+<div class="app-page">
+    <!-- <div className='content' style={{ height: wy }}>
+        <div className='apps-container'>
+            <div className={`apps ${scrollClass()}`} style={{ maxHeight: wy - 100 }}>
+                {_.map(_.keys(APPS), (key, i) => <AppItem key={key} name={key} index={i} wx={wx} />)}
+            </div>
+        </div>
+        <motion.div className='hint' animate={{ opacity: flip ? 1 : 0, transform: `scale(${flip ? 1 : 0})` }}
+            transition={{ type: 'spring', damping: 10, delay: flip ? 0.75 : 0 }}>
+            Click on the app icon to play.
+        </motion.div>
+        <a href="mailto:bmgomg@gmail.com?subject=Beautiful Mind Games" target="_blank" rel="noopener noreferrer"
+            className='mail'>✉️</a>
+    </div> -->
+    <div class="content" style="height: {wy}">
+        <div class="apps-container">
+            <div class="apps {scrollClass()}" style="max-height: {wy - 100}px;">
+                {#each Object.keys(APPS) as key,i (i)}
+                    <AppItem name={key} index={i} wx={wx} />
+                {/each}
+            </div>
+        </div>
+    </div>
+</div>
 
 <style>
     .app-page {
