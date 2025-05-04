@@ -11,7 +11,7 @@ export const windowSize = () => {
 export const isTouchable = () => navigator.maxTouchPoints > 0;
 
 export const tapOrClick = (lower = false) => {
-    const verb = isTouchable() ? 'Tap' : 'Click';
+    const verb = isTouchable() ? 'Tap' : 'Click on';
     return lower ? verb.toLowerCase() : verb;
 };
 

@@ -3,14 +3,15 @@
     import AppItem from './App Item.svelte';
     import { APPS } from './const';
     import { ss } from './state.svelte';
-    import { scrollClass } from './utils';
+    import { scrollClass, tapOrClick, windowSize } from './utils';
+    import Feedback from '$lib/images/Feedback.webp';
 
     let wy = $state(0);
 
     $effect(() => {
         const onResize = () => {
-            const r = document.body.getBoundingClientRect();
-            wy = r.height;
+            const { y } = windowSize();
+            wy = y;
         };
 
         onResize();
@@ -18,25 +19,16 @@
         window.addEventListener('resize', onResize);
         return () => window.removeEventListener('resize', onResize);
     });
+
+    const onFeedback = (e) => {
+
+    };
 </script>
 
 <div class="app-page">
-    <!-- <div className='content' style={{ height: wy }}>
-        <div className='apps-container'>
-            <div className={`apps ${scrollClass()}`} style={{ maxHeight: wy - 100 }}>
-                {_.map(_.keys(APPS), (key, i) => <AppItem key={key} name={key} index={i} wx={wx} />)}
-            </div>
-        </div>
-        <motion.div className='hint' animate={{ opacity: flip ? 1 : 0, transform: `scale(${flip ? 1 : 0})` }}
-            transition={{ type: 'spring', damping: 10, delay: flip ? 0.75 : 0 }}>
-            Click on the app icon to play.
-        </motion.div>
-        <a href="mailto:bmgomg@gmail.com?subject=Beautiful Mind Games" target="_blank" rel="noopener noreferrer"
-            className='mail'>✉️</a>
-    </div> -->
     <div class="content" style="height: {wy}">
         <div class="apps-container">
-            <div class="apps {scrollClass()}" style="max-height: {wy - 100}px;">
+            <div class="apps {scrollClass()}" style="max-height: {wy - 120}px;">
                 {#each Object.keys(APPS) as key, i (i)}
                     <AppItem name={key} index={i} />
                 {/each}
@@ -46,8 +38,11 @@
             animate={{ opacity: ss.flip ? 1 : 0, transform: `scale(${ss.flip ? 1 : 0})` }}
             transition={{ type: 'spring', damping: 10, delay: ss.flip ? 0.75 : 0 }}
             let:motion>
-            <div class="hint" use:motion>Click on the app icon to play.</div>
+            <div class="hint" use:motion>{`${tapOrClick()} the app icon to play.`}</div>
         </Motion>
+        <div class="feedback" onpointerdown="onFeedback">
+            <img src={Feedback} alt="" width={25}/>
+        </div>
     </div>
 </div>
 
@@ -83,11 +78,18 @@
         text-shadow: 1px 1px 1px black;
     }
 
-    .hint {
+    .feedback {
         grid-area: 1/1;
         place-self: end center;
-        font-size: 16px;
         margin-bottom: 1em;
+        opacity: 0.8;
+    }
+
+    .hint {
+        grid-area: 1/1;
+        place-self: start center;
+        font-size: 16px;
+        margin-top: 1.35em;
         text-shadow: 1px 1px 1px black;
         color: white;
     }

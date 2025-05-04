@@ -41,7 +41,7 @@
 </script>
 
 <div class="app-item" style="grid-area: {gridArea};" onpointerdown={onPointerDown}>
-    <a href={url} target="_blank" rel="noopener noreferrer" style="display: grid">
+    <a tabindex="-1" href={url} target="_blank" rel="noopener noreferrer" style="display: grid">
         <img src={icon} alt={name} width={64} style="background-image: radial-gradient(black, transparent 120%)" />
     </a>
     <div class="app-info" style="max-width: {maxWidth};">
