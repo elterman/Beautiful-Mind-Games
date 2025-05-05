@@ -35,7 +35,7 @@
             animate={{ opacity: ss.flip ? 1 : 0, transform: `scale(${ss.flip ? 1 : 0})` }}
             transition={{ type: 'spring', damping: 10, delay: ss.flip ? 0.75 : 0 }}
             let:motion>
-            <div class="hint" use:motion>{`${tapOrClick()} the app icon to play.`}</div>
+            <div class="hint" use:motion>{`${tapOrClick()} app icon to play.`}</div>
         </Motion>
         <div class="feedback {ss.feedback ? 'disabled' : ''}" onpointerdown={() => (ss.feedback = true)}>
             <img src={Feedback} alt="" width={30} />
