@@ -37,7 +37,7 @@
             let:motion>
             <div class="hint" use:motion>{`${tapOrClick()} app icon to play.`}</div>
         </Motion>
-        <div class="feedback {ss.feedback ? 'disabled' : ''}" onpointerdown={() => (ss.feedback = true)}>
+        <div class="feedback" onpointerdown={() => (ss.feedback = true)}>
             <img src={Feedback} alt="" width={30} />
         </div>
     </div>
