@@ -20,8 +20,6 @@
         window.addEventListener('resize', onResize);
         return () => window.removeEventListener('resize', onResize);
     });
-
-    const onFeedback = () => {};
 </script>
 
 <div class="app-page">
@@ -39,7 +37,7 @@
             let:motion>
             <div class="hint" use:motion>{`${tapOrClick()} the app icon to play.`}</div>
         </Motion>
-        <div class="feedback" onpointerdown={() => (ss.feedback = true)}>
+        <div class="feedback {ss.feedback ? 'disabled' : ''}" onpointerdown={() => (ss.feedback = true)}>
             <img src={Feedback} alt="" width={30} />
         </div>
     </div>
@@ -100,5 +98,10 @@
 
     .feedback:hover {
         opacity: 1;
+    }
+
+    .disabled {
+        pointer-events: none;
+        opacity: 0.5;
     }
 </style>
