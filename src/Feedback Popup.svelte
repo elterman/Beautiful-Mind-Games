@@ -48,7 +48,7 @@
 <style>
     .popup {
         grid-area: 1/1;
-        width: 320px;
+        width: calc(min(90dvw, 320px));
         display: grid;
         gap: 10px;
         place-self: end center;
