@@ -78,16 +78,16 @@
 <!-- <div class="popup"></div> -->
 
 <form class="popup" action="https://api.web3forms.com/submit" method="POST">
-    <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE" />
+    <input type="hidden" name="access_key" value="d371bfe0-3e07-4c66-b930-72484e053b77" />
     <span class="label">Name</span>
-    <input class="input" type="text" name="name" required />
+    <input type="text" name="name" required />
     <span class="label">Email</span>
-    <input class="input" type="email" name="email" required />
+    <input type="email" name="email" required />
     <span class="label">Your Message</span>
-    <textarea class="textarea" name="message" required></textarea>
+    <textarea name="message" required></textarea>
     <input type="hidden" name="redirect" value="https://web3forms.com/success" />
 
-    <button type="submit">Send Message</button>
+    <button class="button" type="submit">Send Message</button>
 </form>
 
 <style>
@@ -112,19 +112,47 @@
         margin-bottom: -5px;
     }
 
-    .input,
-    .textarea {
+    input,
+    textarea {
+        box-sizing: border-box;
         border-radius: 5px;
         border: 1px solid #d1d5db;
-        min-height: 24px;
         font-family: Poppins;
         font-size: 15px;
         padding: 5px 10px;
         resize: vertical;
+        -webkit-transition: 0.1s;
+        transition: 0.1s;
+        outline: none;
     }
 
-    .textarea {
+    input {
+        height: 34px;
+    }
+
+    textarea {
         min-height: 100px;
         max-height: 50dvh;
+    }
+
+    input:focus,
+    textarea:focus {
+        border: 2px solid #6366f1;
+    }
+
+    button {
+        border-radius: 5px;
+        min-height: 40px;
+        background: #6366f1;
+        color: #fff;
+        border: none;
+        font-family: Poppins;
+        font-size: 15px;
+        padding: 5px 10px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        filter: contrast(1.3) saturate(1.3);
     }
 </style>

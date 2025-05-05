@@ -79,6 +79,15 @@
         text-shadow: 1px 1px 1px black;
     }
 
+    .hint {
+        grid-area: 1/1;
+        place-self: start center;
+        font-size: 16px;
+        margin-top: 1.35em;
+        text-shadow: 1px 1px 1px black;
+        color: white;
+    }
+
     .feedback {
         grid-area: 1/1;
         place-self: end center;
@@ -87,12 +96,7 @@
         cursor: pointer;
     }
 
-    .hint {
-        grid-area: 1/1;
-        place-self: start center;
-        font-size: 16px;
-        margin-top: 1.35em;
-        text-shadow: 1px 1px 1px black;
-        color: white;
+    .feedback:hover {
+        opacity: 1;
     }
 </style>
