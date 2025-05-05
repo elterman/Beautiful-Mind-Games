@@ -58,6 +58,7 @@
         padding: 20px;
         border-radius: 5px;
         box-sizing: border-box;
+        overflow: hidden;
     }
 
     .label {
