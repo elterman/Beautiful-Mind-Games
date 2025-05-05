@@ -5,6 +5,7 @@
     import { ss } from './state.svelte';
     import { scrollClass, tapOrClick, windowSize } from './utils';
     import Feedback from '$lib/images/Feedback.webp';
+    import FeedbackPopup from './Feedback Popup.svelte';
 
     let wy = $state(0);
 
@@ -42,6 +43,7 @@
             <img src={Feedback} alt="" width={30} />
         </div>
     </div>
+    <FeedbackPopup/>
 </div>
 
 <style>
@@ -60,6 +62,7 @@
     }
 
     .content {
+        grid-area: 1/1;
         display: grid;
     }
 
@@ -81,6 +84,7 @@
         place-self: end center;
         margin-bottom: 1em;
         opacity: 0.8;
+        cursor: pointer;
     }
 
     .hint {
