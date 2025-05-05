@@ -110,6 +110,6 @@
 
     @font-face {
         font-family: 'Roboto Condensed';
-        src: url('$lib/fonts/RobotoCondensed.ttf');
+        src: url('$lib/fonts/Roboto Condensed.ttf');
     }
 </style>
