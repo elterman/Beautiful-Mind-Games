@@ -54,7 +54,7 @@
         place-self: end center;
         margin-bottom: 4em;
         z-index: 1;
-        background: #000000c0;
+        background: inherit;
         padding: 20px;
         border-radius: 5px;
         box-sizing: border-box;
@@ -79,6 +79,7 @@
         resize: vertical;
         -webkit-transition: 0.1s;
         transition: 0.1s;
+        border: none;
         outline: none;
         width: 100%;
     }
@@ -108,7 +109,6 @@
         padding: 5px 10px;
         cursor: pointer;
         transition: background-color 0.3s;
-        margin-top: 10px;
     }
 
     button:hover {
@@ -120,6 +120,7 @@
     }
 
     .buttons {
+        margin-top: 10px;
         display: grid;
         gap: 10px;
         grid-template-columns: 0.7fr 1fr;
