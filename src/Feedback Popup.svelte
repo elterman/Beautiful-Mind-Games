@@ -54,7 +54,6 @@
         place-self: end center;
         margin-bottom: 4em;
         z-index: 1;
-        background: #2f0504;
         background: #000000c0;
         padding: 20px;
         border-radius: 5px;
@@ -73,7 +72,6 @@
     textarea {
         box-sizing: border-box;
         border-radius: 5px;
-        /* border: 1px solid #d1d5db; */
         background: #d1d5db;
         font-family: Poppins;
         font-size: 15px;
@@ -96,7 +94,7 @@
 
     input:focus,
     textarea:focus {
-        border: 2px solid #6366f1;
+        border: 2px solid white;
     }
 
     button {
