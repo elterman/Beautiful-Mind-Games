@@ -54,7 +54,7 @@
         place-self: end center;
         margin-bottom: 4em;
         z-index: 1;
-        background: #fffffff0;
+        background: #2f0504;
         padding: 20px;
         border-radius: 5px;
         box-sizing: border-box;
@@ -64,7 +64,7 @@
     .label {
         font-family: Poppins;
         font-size: 14px;
-        color: #000;
+        color: #ffffffc0;
         margin-bottom: -5px;
     }
 
@@ -80,6 +80,7 @@
         -webkit-transition: 0.1s;
         transition: 0.1s;
         outline: none;
+        width: 100%;
     }
 
     input {
