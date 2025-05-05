@@ -1,4 +1,8 @@
 <script>
+    import { fade } from 'svelte/transition';
+    import { ss } from './state.svelte';
+    import { post } from './utils';
+
     const validate = () => {
         'use strict';
         /*
@@ -62,7 +66,10 @@
                                     result.style.display = 'none';
                                 }, 5000);
                             });
+
+                        // post(() => (ss.feedback = false));
                     }
+
                     form.classList.add('was-validated');
                 },
                 false,
@@ -75,19 +82,20 @@
     });
 </script>
 
-<!-- <div class="popup"></div> -->
-
-<form class="popup" action="https://api.web3forms.com/submit" method="POST">
+<form class="popup" action="https://api.web3forms.com/submit" method="POST" transition:fade={{ duration: 200 }}>
     <input type="hidden" name="access_key" value="d371bfe0-3e07-4c66-b930-72484e053b77" />
+    <input type="hidden" name="app" value="Beautiful Mind Games" />
     <span class="label">Name</span>
     <input type="text" name="name" required />
     <span class="label">Email</span>
     <input type="email" name="email" required />
     <span class="label">Your Message</span>
     <textarea name="message" required></textarea>
-    <input type="hidden" name="redirect" value="https://web3forms.com/success" />
 
-    <button class="button" type="submit">Send Message</button>
+    <div class="buttons">
+        <button class="button" onclick={() => (ss.feedback = false)}>Cancel</button>
+        <button class="button" type="submit">Send Message</button>
+    </div>
 </form>
 
 <style>
@@ -154,5 +162,11 @@
 
     button:hover {
         filter: contrast(1.3) saturate(1.3);
+    }
+
+    .buttons {
+        display: grid;
+        gap: 10px;
+        grid-template-columns: 0.7fr 1fr;
     }
 </style>

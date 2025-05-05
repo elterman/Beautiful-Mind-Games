@@ -39,11 +39,13 @@
             let:motion>
             <div class="hint" use:motion>{`${tapOrClick()} the app icon to play.`}</div>
         </Motion>
-        <div class="feedback" onpointerdown={onFeedback}>
+        <div class="feedback" onpointerdown={() => (ss.feedback = true)}>
             <img src={Feedback} alt="" width={30} />
         </div>
     </div>
-    <FeedbackPopup/>
+    {#if ss.feedback}
+        <FeedbackPopup />
+    {/if}
 </div>
 
 <style>
