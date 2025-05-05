@@ -55,6 +55,7 @@
         margin-bottom: 4em;
         z-index: 1;
         background: #2f0504;
+        background: #000000c0;
         padding: 20px;
         border-radius: 5px;
         box-sizing: border-box;
@@ -72,7 +73,8 @@
     textarea {
         box-sizing: border-box;
         border-radius: 5px;
-        border: 1px solid #d1d5db;
+        /* border: 1px solid #d1d5db; */
+        background: #d1d5db;
         font-family: Poppins;
         font-size: 15px;
         padding: 5px 10px;
