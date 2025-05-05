@@ -33,11 +33,11 @@
     <input type="hidden" name="access_key" value="d371bfe0-3e07-4c66-b930-72484e053b77" />
     <input type="hidden" name="app" value="Beautiful Mind Games" />
     <span class="label">Name</span>
-    <input type="text" name="name" required />
+    <input type="text" name="name" required title=''/>
     <span class="label">Email</span>
-    <input type="email" name="email" required />
+    <input type="email" name="email" required  title=''/>
     <span class="label">Your Message</span>
-    <textarea name="message" required></textarea>
+    <textarea name="message" required title=''></textarea>
 
     <div class="buttons">
         <button class="button" onclick={() => (ss.feedback = false)}>Cancel</button>
