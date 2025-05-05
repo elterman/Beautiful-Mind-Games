@@ -64,6 +64,7 @@
     .content {
         grid-area: 1/1;
         display: grid;
+        transition: 0.5s;
     }
 
     .apps-container {
