@@ -23,7 +23,7 @@
 </script>
 
 <div class="app-page">
-    <div class="content" style="height: {wy}">
+    <div class="content {ss.feedback ? 'disabled' : ''}" style="height: {wy}">
         <div class="apps-container">
             <div class="apps {scrollClass()}" style="max-height: {wy - 125}px;">
                 {#each Object.keys(APPS) as key, i (i)}
