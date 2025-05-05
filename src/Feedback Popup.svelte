@@ -48,7 +48,7 @@
 <style>
     .popup {
         grid-area: 1/1;
-        width: calc(min(90dvw, 320px));
+        width: calc(min(90dvw, 340px));
         display: grid;
         gap: 10px;
         place-self: end center;
@@ -107,6 +107,7 @@
         padding: 5px 10px;
         cursor: pointer;
         transition: background-color 0.3s;
+        margin-top: 10px;
     }
 
     button:hover {
